@@ -1,0 +1,22 @@
+<div class="container my-4">
+  <h3>{{ title }}</h3>
+  <button class="btn btn-primary my-3" (click)="setOpen()">Formulario</button>
+  <div class="row">
+    @if (open) {
+      <div class="abrir-modal">
+        <user-form
+          (newUserEventEmitter)="addUser($event)"
+          [user]="userSelected"
+          (openEventEmmit)="setOpen()"
+        />
+      </div>
+    }
+    <div class="col-12">
+      <app-user
+        [users]="users"
+        (idUserEventEmitter)="removeUser($event)"
+        (selectUserEventEmitter)="editUser($event)"
+      />
+    </div>
+  </div>
+</div>
