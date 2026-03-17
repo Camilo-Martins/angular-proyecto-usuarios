@@ -1,7 +1,7 @@
+<app-navbar [users]="users" />
 <div class="container my-4">
-  <h3>{{ title }}</h3>
-  <button class="btn btn-primary my-3" (click)="setOpen()">Formulario</button>
-  <div class="row">
+  <router-outlet></router-outlet>
+  <!--  <div class="row">
     @if (open) {
       <div class="abrir-modal">
         <user-form
@@ -18,5 +18,5 @@
         (selectUserEventEmitter)="editUser($event)"
       />
     </div>
-  </div>
+  </div> -->
 </div>
