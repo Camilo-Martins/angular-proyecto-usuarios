@@ -33,6 +33,14 @@ export class UserApp implements OnInit {
     this.addUser();
     this.removeUser();
     this.editUser();
+    this.findUserById();
+  }
+
+  findUserById() {
+    this.sharingData.findUserByIdEventEmitter.subscribe((id) => {
+      const user = this.users.find((user) => user.id == id);
+      this.sharingData.selectedUserEventEmitter.emit(user);
+    });
   }
 
   addUser() {

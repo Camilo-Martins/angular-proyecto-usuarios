@@ -29,7 +29,9 @@
                 <button class="btn btn-danger" (click)="onRemoveUser(user.id)">Eliminar</button>
               </div>
               <div class="col">
-                <button class="btn btn-success" (click)="onSelectedUser(user)">Actualizar</button>
+                <button class="btn btn-success" [routerLink]="['/users/edit', user.id]">
+                  Actualizar
+                </button>
               </div>
             </div>
           </td>
