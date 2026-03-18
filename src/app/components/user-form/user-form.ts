@@ -4,6 +4,7 @@ import { User } from '../../models/user';
 import { CommonModule } from '@angular/common';
 import { SharingData } from '../../services/sharing-data';
 import { ActivatedRoute, Router } from '@angular/router';
+import { UserService } from '../../services/user';
 
 @Component({
   selector: 'user-form',
@@ -16,6 +17,7 @@ export class UserForm implements OnInit {
   constructor(
     private sharingData: SharingData,
     private route: ActivatedRoute,
+    private service: UserService,
   ) {
     this.user = new User();
   }
@@ -28,6 +30,10 @@ export class UserForm implements OnInit {
 
       if (id > 0) {
         this.sharingData.findUserByIdEventEmitter.emit(id);
+        /*  this.service.findByID(id).subscribe((user) => {
+          this.user = user;
+          
+        }); */
       }
     });
   }
